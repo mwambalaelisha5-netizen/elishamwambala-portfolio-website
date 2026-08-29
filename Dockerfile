@@ -35,7 +35,4 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
-# LAZIMA: Lazimisha Laravel kusoma Environment Variables za Render
-RUN echo "Listen 80" >> /etc/apache2/ports.conf
-RUN echo "PassEnv APP_KEY" >> /etc/apache2/apache2.conf
 EXPOSE 80

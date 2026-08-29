@@ -19,27 +19,35 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# 4. Copy mradi mzima kuingia kwenye server container
+# 4. Copy mradi mzima
 COPY . .
 
-# 5. Sakinisha composer dependencies bila kuweka cache ngumu ya local
+# 5. Sakinisha composer dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# 6. SEHEMU YA MUHIMU ZAIDI: Tengeneza na upe Apache mamlaka kamili ya kuandika kwenye storage na cache
-RUN mkdir -p /var/www/html/storage/framework/cache/data \
+# 6. SEHEMU YA MUHIMU ZAIDI: Tengeneza faili la SQLite na folda zote zilizokosekana
+RUN mkdir -p /var/www/html/database \
+    && touch /var/www/html/database/database.sqlite \
+    && mkdir -p /var/www/html/storage/framework/cache/data \
     && mkdir -p /var/www/html/storage/framework/sessions \
     && mkdir -p /var/www/html/storage/framework/views \
     && mkdir -p /var/www/html/storage/logs \
     && chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/database \
     && chmod -R 775 /var/www/html/bootstrap/cache
 
-# 7. Weka Document Root ielekee public folda la Laravel
+# 7. Run database migrations kutengeneza meza za sessions hewani
+RUN php artisan migrate --force
+
+# 8. Weka Document Root ielekee public folda la Laravel
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
-# 8. LAZIMA: Lazimisha Apache ipitishe APP_KEY ya Render kuingia ndani ya Laravel
+# 9. Lazimisha Apache ipitishe variables za Render
 RUN echo "PassEnv APP_KEY" >> /etc/apache2/apache2.conf
+RUN echo "PassEnv DB_CONNECTION" >> /etc/apache2/apache2.conf
+RUN echo "PassEnv DB_DATABASE" >> /etc/apache2/apache2.conf
 
 EXPOSE 80

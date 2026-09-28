@@ -12,8 +12,8 @@
     <!-- Website Title -->
     <title>Elisha Portfolio</title>
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}?v=123">
+
      
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"

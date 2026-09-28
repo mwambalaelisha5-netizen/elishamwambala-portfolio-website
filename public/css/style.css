@@ -1,43 +1,51 @@
-/* =====================================================
-   ELISHA PORTFOLIO - MODERN RESPONSIVE CSS
-   ===================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
 :root {
-    --primary: #00abf0;
-    --primary-dark: #008dcc;
-    --secondary: #7c3aed;
+    /* RANGI ZA KISHAZI (EMERALD & GOLD LUXURY THEME) */
+    --primary: #059669;        /* Emerald Green - Kijani ya kifahari ya Zamaradi */
+    --primary-dark: #047857;   /* Kijani iliyokoza */
+    --secondary: #d97706;     /* Amber Gold - Dhahabu laini kwa ajili ya utofauti maridadi */
 
-    --bg: #f8fafc;
-    --bg-secondary: #eef6fb;
+    /* LIGHT MODE: Rangi ya lulu iliyofifia (Warm Pearl/Alabaster) - Nzuri sana kwa macho */
+    --bg: radial-gradient(at 0% 0%, rgba(5, 150, 105, 0.04) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.03) 0px, transparent 50%),
+          #f7f8f6;
+    --bg-size: 100% 100%;
+    
+    --bg-secondary: #edf0ec;
     --card: #ffffff;
 
-    --text: #172033;
-    --text-light: #64748b;
+    --text: #0f171c;           /* Charcoal ya giza sana */
+    --text-light: #52616b;
 
-    --border: rgba(0, 0, 0, 0.08);
-
-    --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-
-    --transition: 0.35s ease;
+    --border: rgba(5, 150, 105, 0.08);
+    --shadow: 0 10px 35px rgba(5, 150, 105, 0.04);
+    --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transition laini zaidi ya kisasa */
 }
 
 body.dark-mode {
-    --bg: #07111f;
-    --bg-secondary: #0b1728;
-    --card: #101e31;
+    /* DARK MODE: WEUSI WA DIAMOND (OBSIDIAN) NA MIWANGA YA ZAMARADI */
+    --primary: #10b981;        /* Emerald inayong'aa kwa muonekano maridadi */
+    --primary-dark: #059669;
+    --secondary: #fbbf24;      /* Dhahabu inayong'aa (Amber) */
 
-    --text: #f1f5f9;
-    --text-light: #a9b6c7;
+    /* Background ya Obsidian (Rangi ya Makaa yenye ubaridi wa kijani kwa mbali mno) */
+    --bg: radial-gradient(at 5% 5%, rgba(16, 185, 129, 0.08) 0px, transparent 45%),
+          radial-gradient(at 95% 20%, rgba(251, 191, 36, 0.03) 0px, transparent 40%),
+          radial-gradient(at 50% 85%, rgba(4, 120, 87, 0.04) 0px, transparent 50%),
+          #0b0f0e;             /* Obsidian Black yenye mchanganyiko wa siri wa Emerald */
+    --bg-size: 100% 100%;
 
-    --border: rgba(255, 255, 255, 0.08);
+    --bg-secondary: #111715;   /* Sehemu za sekondari */
+    --card: #151d1a;           /* Kadi za muundo wa kisasa kabisa (Glow Onyx Effect) */
 
-    --shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    --text: #f3f4f6;
+    --text-light: #9ca3af;
+
+    --border: rgba(16, 185, 129, 0.07); /* Mipaka ya kadi inang'aa kwa mbali sana */
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
 }
 
 /* ===============================
-   RESET
+   RESET & BODY BORESHWA
    =============================== */
 
 * {
@@ -53,11 +61,15 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--bg);
+    background: var(--bg); 
+    background-size: var(--bg-size);
+    background-color: #0b0f0e; 
+    background-attachment: fixed; 
     color: var(--text);
     line-height: 1.7;
     transition: background var(--transition), color var(--transition);
 }
+
 
 img {
     max-width: 100%;
@@ -1053,9 +1065,15 @@ footer {
         padding: 80px 5%;
     }
 
-    .home {
+       .home {
         padding-top: 120px;
+        display: flex;             
+        flex-direction: column-reverse;
+        align-items: center;       
+        text-align: center;        
+        gap: 30px;                 
     }
+
 
     .home-content h3 {
         font-size: 20px;

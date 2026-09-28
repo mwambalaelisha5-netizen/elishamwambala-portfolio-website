@@ -329,11 +329,10 @@ document.addEventListener("DOMContentLoaded", () => {
         new Typed("#typing", {
 
             strings: [
-                "ICT Student",
-                "Web Developer",
-                "PHP Programmer",
+                "Web and System Developer",
+                "Designer of Posters and flyers",
                 "Database Administrator",
-                "Network Technician",
+                "Network Administrator",
                 
             ],
 

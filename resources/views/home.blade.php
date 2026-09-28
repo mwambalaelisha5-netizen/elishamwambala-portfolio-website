@@ -103,7 +103,7 @@
 
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
 
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#https://github.com/mwambalaelisha5-netizen/elishamwambala-portfolio-website.git"><i class="fab fa-github"></i></a>
 
             </div>
 
@@ -125,7 +125,7 @@
 
         <div class="home-image">
 
-            <img src="images/el.png" alt="Profile Picture">
+            <img src="images/elllllll.jpg" alt="Profile Picture">
 
         </div>
 
@@ -157,7 +157,7 @@
 
         <p>
             Hello! My name is Elisha Mwambala. I am an ICT student
-            with a passion for Web Development, Networking,Hardware Troubleshooting and
+            with Skills of Web and System Development, Network Configuration,Hardware Troubleshooting and
             Programming. I enjoy creating beautiful, responsive,
             and user-friendly websites and System using HTML, CSS,
             JavaScript, PHP, and MySQL.
